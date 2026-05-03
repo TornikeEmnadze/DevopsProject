@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="400" viewBox="0 0 1100 400" role="img" aria-labelledby="title desc">
+  <title id="title">Monitoring proof</title>
+  <desc id="desc">Health check log output from the running application.</desc>
+  <rect width="1100" height="400" fill="#f6f8f9"/>
+  <rect x="36" y="32" width="1028" height="300" rx="8" fill="#17212b"/>
+  <text x="68" y="78" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Monitoring Health Check</text>
+  <text x="68" y="128" fill="#55d68b" font-family="Consolas, monospace" font-size="19">$ node scripts/health-check.js --url http://127.0.0.1:3000/health</text>
+  <text x="68" y="176" fill="#dbe7ee" font-family="Consolas, monospace" font-size="18">2026-05-03T18:45:56.424Z UP 200 46ms http://127.0.0.1:3000/health</text>
+  <text x="68" y="232" fill="#9fb2c0" font-family="Consolas, monospace" font-size="16">Log file: logs/health-check.log</text>
+  <text x="68" y="264" fill="#9fb2c0" font-family="Consolas, monospace" font-size="16">Use --watch --interval 5000 for periodic checks.</text>
+</svg>

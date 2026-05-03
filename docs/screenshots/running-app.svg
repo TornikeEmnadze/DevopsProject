@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Running app proof</title>
+  <desc id="desc">Preview of the DevOps Task Board running locally.</desc>
+  <rect width="1100" height="620" fill="#f6f8f9"/>
+  <rect x="54" y="42" width="992" height="536" rx="8" fill="#ffffff" stroke="#d7dee5"/>
+  <rect x="54" y="42" width="992" height="52" rx="8" fill="#17212b"/>
+  <circle cx="84" cy="68" r="7" fill="#e06c75"/>
+  <circle cx="110" cy="68" r="7" fill="#d9952f"/>
+  <circle cx="136" cy="68" r="7" fill="#247c6d"/>
+  <text x="172" y="74" fill="#dbe7ee" font-family="Consolas, monospace" font-size="16">http://127.0.0.1:3000</text>
+  <text x="96" y="150" fill="#185c50" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">BLUE-GREEN DEPLOYMENT DEMO</text>
+  <text x="96" y="198" fill="#17212b" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">DevOps Task Board</text>
+  <text x="96" y="236" fill="#5e6b76" font-family="Arial, Helvetica, sans-serif" font-size="20">Track deployment tasks while the project demonstrates CI, automation, deployment, rollback, and monitoring.</text>
+  <rect x="96" y="290" width="330" height="210" rx="8" fill="#ffffff" stroke="#d7dee5"/>
+  <text x="120" y="334" fill="#5e6b76" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Task title</text>
+  <rect x="120" y="352" width="258" height="36" rx="6" fill="#f6f8f9" stroke="#d7dee5"/>
+  <text x="132" y="376" fill="#5e6b76" font-family="Arial, Helvetica, sans-serif" font-size="14">Prepare production release</text>
+  <text x="120" y="422" fill="#5e6b76" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Owner</text>
+  <rect x="120" y="440" width="258" height="36" rx="6" fill="#f6f8f9" stroke="#d7dee5"/>
+  <rect x="456" y="290" width="548" height="210" rx="8" fill="#ffffff" stroke="#d7dee5"/>
+  <text x="486" y="336" fill="#17212b" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Current tasks</text>
+  <line x1="486" y1="370" x2="974" y2="370" stroke="#d7dee5"/>
+  <text x="486" y="406" fill="#185c50" font-family="Arial, Helvetica, sans-serif" font-size="18">Deploy blue version</text>
+  <text x="890" y="406" fill="#5e6b76" font-family="Arial, Helvetica, sans-serif" font-size="18">dev</text>
+  <line x1="486" y1="430" x2="974" y2="430" stroke="#d7dee5"/>
+  <text x="486" y="466" fill="#185c50" font-family="Arial, Helvetica, sans-serif" font-size="18">Verify health monitor</text>
+  <text x="858" y="466" fill="#5e6b76" font-family="Arial, Helvetica, sans-serif" font-size="18">student</text>
+</svg>

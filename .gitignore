@@ -1,0 +1,6 @@
+.local-production/
+logs/
+node_modules/
+.env
+coverage/
+*.log
