@@ -12,7 +12,7 @@ Final repository link: [https://github.com/TornikeEmnadze/DevopsProject](https:/
 - Node.js built-in `node:test` runner for unit tests
 - Custom Node.js lint script
 - Git and GitHub branches: `main` and `dev`
-- GitHub Actions for CI
+- GitHub Actions for CI/CD
 - Node.js automation scripts for IaC, deployment, rollback, and monitoring
 - Local blue-green production simulation under `.local-production`
 
@@ -222,23 +222,23 @@ Example log line:
 
 ```text
 .
-├── .github/workflows/ci.yml
-├── docs/screenshots/
-├── public/styles.css
-├── scripts/
-│   ├── build.js
-│   ├── deploy.js
-│   ├── health-check.js
-│   ├── lint.js
-│   ├── prepare-env.js
-│   ├── rollback.js
-│   ├── serve-production.js
-│   └── smoke-production.js
-├── src/
-│   ├── index.js
-│   ├── server.js
-│   └── store.js
-├── test/app.test.js
-├── package.json
-└── README.md
+|-- .github/workflows/ci.yml
+|-- docs/screenshots/
+|-- public/styles.css
+|-- scripts/
+|   |-- build.js
+|   |-- deploy.js
+|   |-- health-check.js
+|   |-- lint.js
+|   |-- prepare-env.js
+|   |-- rollback.js
+|   |-- serve-production.js
+|   `-- smoke-production.js
+|-- src/
+|   |-- index.js
+|   |-- server.js
+|   `-- store.js
+|-- test/app.test.js
+|-- package.json
+`-- README.md
 ```
