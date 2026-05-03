@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const root = path.join(__dirname, '..');
 const checkedExtensions = new Set(['.js', '.css', '.json', '.md', '.yml']);
-const ignoredDirectories = new Set(['.git', 'node_modules', '.local-production', 'logs']);
+const ignoredDirectories = new Set(['.git', 'node_modules', '.local-production', 'dist', 'logs']);
 const problems = [];
 
 function walk(directory) {

@@ -45,27 +45,27 @@ flowchart LR
 
 ## Proof Screenshots
 
-### Successful CI Pipeline
+### Successful CI/CD Pipeline
 
 The workflow runs on every push or pull request to `main` and `dev`.
 
-![CI pipeline proof](docs/screenshots/ci-pipeline.svg)
+![CI pipeline proof](docs/screenshots/ci-pipeline.png)
 
 ### Successful IaC Execution
 
-![IaC execution proof](docs/screenshots/iac-execution.svg)
+![IaC execution proof](docs/screenshots/iac-execution.png)
 
 ### Deployment Process
 
-![Deployment proof](docs/screenshots/deployment.svg)
+![Deployment proof](docs/screenshots/deployment.png)
 
 ### Running App
 
-![Running app proof](docs/screenshots/running-app.svg)
+![Running app proof](docs/screenshots/running-app.png)
 
 ### Monitoring Logs
 
-![Monitoring proof](docs/screenshots/monitoring.svg)
+![Monitoring proof](docs/screenshots/monitoring.png)
 
 ## Step-by-Step Instructions
 
@@ -134,7 +134,7 @@ node scripts/lint.js
 
 The lint script checks project files for trailing whitespace, missing final newlines, tab indentation, and very long lines.
 
-### 6. Continuous Integration
+### 6. Continuous Integration and Delivery
 
 CI is configured in `.github/workflows/ci.yml`.
 
@@ -144,13 +144,15 @@ It runs automatically on:
 - Pushes to `dev`
 - Pull requests targeting `main`
 - Pull requests targeting `dev`
+- Manual runs from the GitHub Actions tab
 
-The pipeline runs:
+The pipeline has four jobs:
 
-```bash
-npm test
-npm run lint
-```
+- `Run Tests and Lint`: runs unit tests and linting.
+- `Build Application`: creates a release artifact in `dist`.
+- `Blue-Green Deploy Validation`: prepares local production, deploys blue, deploys green, rolls back,
+  starts production, and checks `/health`.
+- `Pipeline Status Check`: fails the workflow if any required job fails.
 
 ### 7. Prepare the Environment with One Command
 
@@ -257,12 +259,14 @@ This keeps both required branches active and lets CI run on both branches.
 ├── docs/screenshots/
 ├── public/styles.css
 ├── scripts/
+│   ├── build.js
 │   ├── deploy.js
 │   ├── health-check.js
 │   ├── lint.js
 │   ├── prepare-env.js
 │   ├── rollback.js
-│   └── serve-production.js
+│   ├── serve-production.js
+│   └── smoke-production.js
 ├── src/
 │   ├── index.js
 │   ├── server.js

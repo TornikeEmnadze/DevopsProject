@@ -3,4 +3,5 @@ logs/
 node_modules/
 .env
 coverage/
+dist/
 *.log

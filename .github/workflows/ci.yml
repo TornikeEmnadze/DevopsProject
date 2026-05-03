@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -9,10 +9,13 @@ on:
     branches:
       - main
       - dev
+  workflow_dispatch:
 
 jobs:
-  test-and-lint:
+  test:
+    name: Run Tests and Lint
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,10 +23,95 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "20"
 
       - name: Run unit tests
         run: npm test
 
       - name: Run linting
         run: npm run lint
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build release artifact
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: devops-task-board-build
+          path: dist
+          retention-days: 7
+
+  deploy-validation:
+    name: Blue-Green Deploy Validation
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run local production blue-green smoke test
+        run: npm run deploy:check
+
+      - name: Upload production logs and state
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-production-evidence
+          path: |
+            .local-production
+            logs
+          retention-days: 7
+
+  pipeline-status:
+    name: Pipeline Status Check
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - test
+      - build
+      - deploy-validation
+
+    steps:
+      - name: Check test job status
+        if: needs.test.result != 'success'
+        run: |
+          echo "Test and lint job failed."
+          exit 1
+
+      - name: Check build job status
+        if: needs.build.result != 'success'
+        run: |
+          echo "Build job failed."
+          exit 1
+
+      - name: Check deployment validation status
+        if: needs.deploy-validation.result != 'success'
+        run: |
+          echo "Blue-green deployment validation failed."
+          exit 1
+
+      - name: Pipeline status success
+        if: needs.test.result == 'success' && needs.build.result == 'success' && needs.deploy-validation.result == 'success'
+        run: |
+          echo "All required CI/CD checks passed."
+          echo "Tests, linting, build, local deployment, rollback, and health check are verified."
