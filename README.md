@@ -1,7 +1,5 @@
 # DevOps Task Board
 
-![CI](https://github.com/TornikeEmnadze/DevopsProject/actions/workflows/ci.yml/badge.svg)
-
 DevOps Task Board is a small Node.js web application built for the DevOps project requirements.
 It includes a dynamic route, an input form and endpoint, automated tests, linting, GitHub Actions CI,
 single-command environment preparation, a local blue-green deployment simulation, rollback, and periodic health monitoring.
@@ -28,20 +26,7 @@ Final repository link: [https://github.com/TornikeEmnadze/DevopsProject](https:/
 
 ## Workflow Diagram
 
-```mermaid
-flowchart LR
-    A["Developer push or pull request"] --> B["GitHub Actions CI"]
-    B --> C["Run unit tests"]
-    B --> D["Run linting"]
-    C --> E["Merge-ready branch"]
-    D --> E
-    E --> F["Prepare environment"]
-    F --> G["Deploy inactive blue/green slot"]
-    G --> H["Switch active slot"]
-    H --> I["Health check monitoring"]
-    H --> J["Rollback if needed"]
-    J --> H
-```
+![CI/CD workflow diagram](docs/screenshots/workflow-diagram.png)
 
 ## Proof Screenshots
 
@@ -233,24 +218,6 @@ Example log line:
 2026-05-03T18:45:56.424Z UP 200 46ms http://127.0.0.1:3000/health
 ```
 
-## Git Workflow
-
-Use `dev` for active development and `main` for stable submissions.
-
-Recommended flow:
-
-```bash
-git checkout dev
-git add .
-git commit -m "Implement task board application"
-git push origin dev
-git checkout main
-git merge dev
-git push origin main
-```
-
-This keeps both required branches active and lets CI run on both branches.
-
 ## Project Structure
 
 ```text
@@ -275,9 +242,3 @@ This keeps both required branches active and lets CI run on both branches.
 ├── package.json
 └── README.md
 ```
-
-## Submission
-
-Submit this repository link:
-
-[https://github.com/TornikeEmnadze/DevopsProject](https://github.com/TornikeEmnadze/DevopsProject)
