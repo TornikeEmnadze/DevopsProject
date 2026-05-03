@@ -1,0 +1,29 @@
+{
+  "name": "devops-blue-green-demo",
+  "version": "1.0.0",
+  "description": "Small Node.js web application with CI, IaC automation, blue-green deployment, rollback, and monitoring.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node test/app.test.js",
+    "lint": "node scripts/lint.js",
+    "build": "node scripts/build.js",
+    "prepare-env": "node scripts/prepare-env.js",
+    "deploy": "node scripts/deploy.js",
+    "rollback": "node scripts/rollback.js",
+    "prod": "node scripts/serve-production.js",
+    "deploy:check": "node scripts/smoke-production.js",
+    "health-check": "node scripts/health-check.js --watch"
+  },
+  "keywords": [
+    "devops",
+    "ci",
+    "cd",
+    "blue-green"
+  ],
+  "author": "Tornike Emnadze",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
