@@ -109,6 +109,7 @@ jobs:
         with:
           image-ref: devops-task-board:ci
           format: table
+          scanners: vuln
           severity: CRITICAL,HIGH
           exit-code: "1"
           ignore-unfixed: true

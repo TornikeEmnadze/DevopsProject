@@ -4,6 +4,12 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
+RUN apk add --no-cache --upgrade libcrypto3 libssl3 \
+  && rm -rf /usr/local/lib/node_modules/npm \
+  && rm -rf /usr/local/lib/node_modules/corepack \
+  && rm -rf /opt/yarn-v* \
+  && rm -f /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack
+
 COPY package.json ./
 COPY src ./src
 COPY public ./public
