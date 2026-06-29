@@ -205,9 +205,7 @@ Grafana alerting: http://localhost:3001/alerting
 - `docs/RELIABILITY.md` defines the availability target and recovery strategy.
 - `docs/INCIDENT_RESPONSE.md` documents triage, recovery, and post-incident review.
 
-## Final Evidence Screenshots
-
-Screenshots from the final Docker Compose environment are stored in `docs/screenshots`.
+## Screenshots
 
 ### Running Application
 
