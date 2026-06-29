@@ -1,0 +1,11 @@
+.git
+.github
+.local-production
+dist
+docs/screenshots
+logs
+node_modules
+prometheus-data
+grafana-data
+loki-data
+promtail-data
