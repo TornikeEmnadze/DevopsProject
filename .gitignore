@@ -1,4 +1,5 @@
 .local-production/
+coverage/
 dist/
 logs/
 node_modules/

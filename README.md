@@ -2,10 +2,10 @@
 
 ![CI](https://github.com/TornikeEmnadze/DevopsProject/actions/workflows/ci.yml/badge.svg)
 
-DevOps Task Board is the combined final version of the semester DevOps project. It keeps the original
-Node.js task-board application, CI/CD workflow, local blue-green deployment simulation, rollback, and
-health monitoring, then adds the observability lab stack with Docker Compose, Prometheus, Grafana,
-Loki, Promtail, JSON logs, security automation, and reliability documentation.
+DevOps Task Board is the final combined version of the semester DevOps project. It keeps the original
+Node.js task-board application, Git workflow, CI/CD, local blue-green deployment simulation, rollback,
+IaC-style environment scripts, and health monitoring. It also adds the final observability, Docker
+Compose, security automation, reliability, logging, and alerting requirements.
 
 Final repository link:
 
@@ -48,15 +48,15 @@ username: admin
 password: admin
 ```
 
-## One-Command Environment Setup
+## Environment Setup
 
-Run the full local environment with Docker Compose:
+Run the full local Docker Compose environment:
 
 ```bash
 docker compose up --build -d
 ```
 
-On Windows PowerShell, the automated setup script also validates files and prepares the local
+On Windows PowerShell, this script also validates the project files and prepares the local
 blue-green folders:
 
 ```powershell
@@ -78,7 +78,7 @@ Stop the stack:
 docker compose down
 ```
 
-## Application Endpoints
+## Application Features
 
 - `GET /` displays the task board and task form.
 - `POST /tasks` creates a task.
@@ -91,7 +91,7 @@ docker compose down
 
 ## CI/CD Workflow
 
-GitHub Actions runs on `main`, `dev`, pull requests, and manual dispatch.
+GitHub Actions runs on pushes and pull requests to `main` and `dev`, plus manual dispatch.
 
 Pipeline stages:
 
@@ -100,9 +100,11 @@ Pipeline stages:
 - Environment validation.
 - Local security validation.
 - Build artifact generation.
+- Blue-green deployment smoke validation.
 - Gitleaks secret scanning.
 - Trivy container image scanning.
 - Docker Compose smoke test with health and metrics checks.
+- Final pipeline status gate.
 
 ## Local Deployment Workflow
 
@@ -133,7 +135,7 @@ node scripts/rollback.js
 Run post-deployment verification:
 
 ```bash
-node scripts/smoke-production.js
+npm run deploy:check
 ```
 
 ## Security Implementation
@@ -203,8 +205,9 @@ Grafana alerting: http://localhost:3001/alerting
 - `docs/RELIABILITY.md` defines the availability target and recovery strategy.
 - `docs/INCIDENT_RESPONSE.md` documents triage, recovery, and post-incident review.
 
-## Screenshots
+## Final Evidence Screenshots
 
+Screenshots from the final Docker Compose environment are stored in `docs/screenshots`.
 
 ### Running Application
 
@@ -229,6 +232,17 @@ Grafana alerting: http://localhost:3001/alerting
 ### Grafana Alert Rules
 
 ![Grafana alert rules page](docs/screenshots/GrafanaAlertingRules.png)
+
+## Previous Assignment Evidence
+
+The repository also keeps screenshots from earlier project stages:
+
+- `docs/screenshots/ci-pipeline.png`
+- `docs/screenshots/iac-execution.png`
+- `docs/screenshots/deployment.png`
+- `docs/screenshots/running-app.png`
+- `docs/screenshots/monitoring.png`
+- `docs/screenshots/workflow-diagram.png`
 
 ## Analysis
 
